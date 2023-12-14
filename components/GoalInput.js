@@ -1,5 +1,12 @@
 import { useState } from "react";
-import { TextInput, View, StyleSheet, Button, Modal } from "react-native";
+import {
+  TextInput,
+  View,
+  StyleSheet,
+  Button,
+  Modal,
+  Image,
+} from "react-native";
 
 export const GoalInput = ({ setGoals, modalVisible, handleModal }) => {
   const [container, setContainer] = useState("");
@@ -13,10 +20,11 @@ export const GoalInput = ({ setGoals, modalVisible, handleModal }) => {
   const handleInput = (text) => {
     setContainer(text);
   };
-  console.log(modalVisible);
+
   return (
     <Modal visible={modalVisible} animationType="slide">
       <View style={styles.inputContainer}>
+        <Image style={styles.image} source={require("../assets/goal.png")} />
         <TextInput
           placeholder="Hello!"
           style={styles.TextInput}
@@ -25,11 +33,11 @@ export const GoalInput = ({ setGoals, modalVisible, handleModal }) => {
         />
         <View style={styles.buttons}>
           <View style={styles.button}>
-            <Button onPress={handleAdd} title="Add" />
+            <Button onPress={handleAdd} title="Add" color="#5e0acc" />
           </View>
 
           <View style={styles.button}>
-            <Button title="Cancel" onPress={handleModal} />
+            <Button title="Cancel" onPress={handleModal} color="#f31282" />
           </View>
         </View>
       </View>
@@ -42,14 +50,16 @@ const styles = StyleSheet.create({
     padding: 16,
     justifyContent: "center",
     alignItems: "center",
-    marginBottom: 16,
-    borderBottomWidth: 1,
-    borderBottomColor: "#cccccc",
+
+    backgroundColor: "#311b6b",
   },
   TextInput: {
-    padding: 5,
+    padding: 10,
     borderWidth: 1,
-    borderColor: "#cccccc",
+    borderColor: "#e4d0ff",
+    backgroundColor: "#e4d0ff",
+    borderRadius: 10,
+    color: "#120438",
     width: "100%",
   },
   buttons: {
@@ -61,5 +71,10 @@ const styles = StyleSheet.create({
   button: {
     width: "30%",
     marginHorizontal: 8,
+  },
+  image: {
+    width: 100,
+    height: 100,
+    margin: 20,
   },
 });

@@ -17,7 +17,7 @@ export const Goalitem = ({ itemData, goals, setGoals }) => {
 const styles = StyleSheet.create({
   textList: {
     padding: 10,
-    backgroundColor: "blue",
+    backgroundColor: "#5e0acc",
     borderColor: "#000000",
     borderWidth: 1,
     marginBottom: 10,
